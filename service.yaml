@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: https://github.com/avmgithub/s2i-pyflask-demo.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: "2023-11-03T20:24:53Z"
+  labels:
+    app: pydemo-build
+    app.kubernetes.io/component: pydemo-build
+    app.kubernetes.io/instance: pydemo-build
+    app.kubernetes.io/name: pydemo-build
+    app.kubernetes.io/part-of: pydemo-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.9-ubi8
+  name: pydemo-build
+  namespace: pydemo
+  resourceVersion: "184425"
+  uid: 3a08b3b3-26ae-4ab7-ae7c-88d57ff092a7
+spec:
+  clusterIP: 172.21.161.229
+  clusterIPs:
+  - 172.21.161.229
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: pydemo-build
+    deployment: pydemo-build
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

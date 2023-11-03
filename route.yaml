@@ -1,0 +1,40 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2023-11-03T20:24:54Z"
+  labels:
+    app: pydemo-build
+    app.kubernetes.io/component: pydemo-build
+    app.kubernetes.io/instance: pydemo-build
+    app.kubernetes.io/name: pydemo-build
+    app.kubernetes.io/part-of: pydemo-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.9-ubi8
+  name: pydemo-build
+  namespace: pydemo
+  resourceVersion: "184430"
+  uid: 4350f0f1-e2a7-4ecb-b94a-ca42e074313d
+spec:
+  host: pydemo-build-pydemo.mycluster1-f3bf9aa2ef0d709089f2b9fa96c67639-0000.us-south.containers.appdomain.cloud
+  port:
+    targetPort: 8080-tcp
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: pydemo-build
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2023-11-03T20:24:54Z"
+      status: "True"
+      type: Admitted
+    host: pydemo-build-pydemo.mycluster1-f3bf9aa2ef0d709089f2b9fa96c67639-0000.us-south.containers.appdomain.cloud
+    routerCanonicalHostname: router-default.mycluster1-f3bf9aa2ef0d709089f2b9fa96c67639-0000.us-south.containers.appdomain.cloud
+    routerName: default
+    wildcardPolicy: None
