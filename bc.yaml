@@ -1,0 +1,54 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: https://github.com/avmgithub/s2i-pyflask-demo.git
+  labels:
+    app: pydemo-build
+    app.kubernetes.io/component: pydemo-build-2
+    app.kubernetes.io/instance: pydemo-build-2
+    app.kubernetes.io/name: pydemo-build-2
+    app.kubernetes.io/part-of: pydemo-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.9-ubi8
+  name: pydemo-build
+  namespace: pydemo
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: pydemo-build-2:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: /
+    git:
+      ref: main
+      uri: https://github.com/avmgithub/s2i-pyflask-demo.git
+    sourceSecret:
+      name: pydemo-secret
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: python:3.9-ubi8
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - generic:
+      secretReference:
+        name: pydemo-build-2-generic-webhook-secret
+    type: Generic
+  - github:
+      secretReference:
+        name: pydemo-build-2-github-webhook-secret
+    type: GitHub
+  - imageChange: {}
+    type: ImageChange
+  - type: ConfigChange
