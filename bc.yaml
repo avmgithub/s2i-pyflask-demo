@@ -6,10 +6,10 @@ metadata:
     app.openshift.io/vcs-uri: https://github.com/avmgithub/s2i-pyflask-demo.git
   labels:
     app: pydemo-build
-    app.kubernetes.io/component: pydemo-build-2
-    app.kubernetes.io/instance: pydemo-build-2
-    app.kubernetes.io/name: pydemo-build-2
-    app.kubernetes.io/part-of: pydemo-app
+    app.kubernetes.io/component: pydemo-build
+    app.kubernetes.io/instance: pydemo-build
+    app.kubernetes.io/name: pydemo-build
+    app.kubernetes.io/part-of: pydemo-build
     app.openshift.io/runtime: python
     app.openshift.io/runtime-version: 3.9-ubi8
   name: pydemo-build
