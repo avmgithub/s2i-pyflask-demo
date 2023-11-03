@@ -38,7 +38,7 @@ spec:
         deployment: pydemo-build
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/pydemo/pydemo-build@sha256:829b21b6206a41e79b6e6f33d3e525959f7717121bf3c8db9c1b5a24c53a5d40
+      - image: image-registry.openshift-image-registry.svc:5000/pydemo/pydemo-build-2@sha256:ef17c44dc5e24f32fd44906088b000ae92c5f7310e90d96db1aed3fbf2f46865
         imagePullPolicy: Always
         name: pydemo-build
         ports:
