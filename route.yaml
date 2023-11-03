@@ -1,8 +1,6 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  annotations:
-    openshift.io/host.generated: "true"
   labels:
     app: pydemo-build
     app.kubernetes.io/component: pydemo-build
