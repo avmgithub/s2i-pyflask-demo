@@ -6,8 +6,6 @@ metadata:
     app.openshift.io/route-disabled: "false"
     app.openshift.io/vcs-ref: main
     app.openshift.io/vcs-uri: https://github.com/avmgithub/s2i-pyflask-demo.git
-    deployment.kubernetes.io/revision: "2"
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"pydemo-build:latest","namespace":"pydemo"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pydemo-build\")].image","pause":"false"}]'
   labels:
     app: pydemo-build
     app.kubernetes.io/component: pydemo-build
@@ -38,7 +36,7 @@ spec:
         deployment: pydemo-build
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/pydemo/pydemo-build-2@sha256:ef17c44dc5e24f32fd44906088b000ae92c5f7310e90d96db1aed3fbf2f46865
+      - image: image-registry.openshift-image-registry.svc:5000/pydemo/pydemo-build-2@sha256:d4003d2c3a6097ee995118060e76c38a78368a7f5a92cb9d4be51e245150b5de
         imagePullPolicy: Always
         name: pydemo-build
         ports:
