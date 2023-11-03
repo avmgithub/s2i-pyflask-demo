@@ -9,8 +9,6 @@ metadata:
     deployment.kubernetes.io/revision: "2"
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"pydemo-build:latest","namespace":"pydemo"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pydemo-build\")].image","pause":"false"}]'
     openshift.io/generated-by: OpenShiftWebConsole
-  creationTimestamp: "2023-11-03T20:24:53Z"
-  generation: 2
   labels:
     app: pydemo-build
     app.kubernetes.io/component: pydemo-build
@@ -21,8 +19,6 @@ metadata:
     app.openshift.io/runtime-version: 3.9-ubi8
   name: pydemo-build
   namespace: pydemo
-  resourceVersion: "184835"
-  uid: 70fcb145-5655-48a6-95e6-465488fee650
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -57,22 +53,3 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2023-11-03T20:26:03Z"
-    lastUpdateTime: "2023-11-03T20:26:03Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2023-11-03T20:24:53Z"
-    lastUpdateTime: "2023-11-03T20:26:03Z"
-    message: ReplicaSet "pydemo-build-556655d47" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 2
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
