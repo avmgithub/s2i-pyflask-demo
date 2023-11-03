@@ -8,7 +8,6 @@ metadata:
     app.openshift.io/vcs-uri: https://github.com/avmgithub/s2i-pyflask-demo.git
     deployment.kubernetes.io/revision: "2"
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"pydemo-build:latest","namespace":"pydemo"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pydemo-build\")].image","pause":"false"}]'
-    openshift.io/generated-by: OpenShiftWebConsole
   labels:
     app: pydemo-build
     app.kubernetes.io/component: pydemo-build
